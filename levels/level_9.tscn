@@ -1,0 +1,419 @@
+[gd_scene load_steps=8 format=4 uid="uid://bktb5vrlqjdg3"]
+
+[ext_resource type="Script" path="res://levels/level_9.gd" id="1_s6q55"]
+[ext_resource type="Texture2D" uid="uid://cinix5bguktmd" path="res://sprites/tilemap.png" id="2_3nryj"]
+[ext_resource type="Script" path="res://scripts/tiles_platform.gd" id="3_gqgfv"]
+[ext_resource type="PackedScene" uid="uid://cpvkvm6ikobka" path="res://scenes/door.tscn" id="4_kmeyn"]
+[ext_resource type="PackedScene" uid="uid://mln7aoyppxcn" path="res://scenes/coin.tscn" id="6_oi3ra"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erd8w"]
+texture = ExtResource("2_3nryj")
+0:8/0 = 0
+1:8/0 = 0
+1:8/0/z_index = -1
+1:8/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:9/0 = 0
+3:9/0 = 0
+2:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_i5c1p"]
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 16
+physics_layer_1/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_erd8w")
+
+[node name="level1" type="Node2D"]
+script = ExtResource("1_s6q55")
+color = Color(0.826328, 0.802884, 0, 1)
+
+[node name="platform" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAkAAAAAAPz/AAAAAAkAAAAAAPn/AAAAAAkAAAAAAPj/AAAAAAkAAAAAAPf/AAAAAAkAAAAAAPb/AAAAAAkAAAAAAPX/AAAAAAkAAAAAAPT/AAAAAAkAAAAAAPP/AAAAAAkAAAAAAPL/AAAAAAkAAAAAAPH/AAAAAAkAAAAAAPD/AAAAAAkAAAABAPD/AAAAAAkAAAACAPD/AAAAAAkAAAADAPD/AAAAAAkAAAAEAPD/AAAAAAkAAAAFAPD/AAAAAAkAAAAGAPD/AAAAAAkAAAAHAPD/AAAAAAkAAAAIAPD/AAAAAAkAAAAJAPD/AAAAAAkAAAAKAPD/AAAAAAkAAAALAPD/AAAAAAkAAAAMAPD/AAAAAAkAAAANAPD/AAAAAAkAAAAOAPD/AAAAAAkAAAAPAPD/AAAAAAkAAAAPAP//AAAAAAkAAAAOAP//AAAAAAkAAAANAP//AAAAAAkAAAAMAP//AAAAAAkAAAALAP//AAAAAAkAAAAKAP//AAAAAAkAAAAJAP//AAAAAAkAAAAIAP//AAAAAAkAAAAHAP//AAAAAAkAAAAGAP//AAAAAAkAAAAFAP//AAAAAAkAAAAEAP//AAAAAAkAAAADAP//AAAAAAkAAAACAP//AAAAAAkAAAAPAPz/AAAAAAkAAAAPAPn/AAAAAAkAAAAPAPj/AAAAAAkAAAAPAPf/AAAAAAkAAAAPAPb/AAAAAAkAAAAPAPX/AAAAAAkAAAAPAPT/AAAAAAkAAAAPAPP/AAAAAAkAAAAPAPL/AAAAAAkAAAAPAPH/AAAAAAkAAAABAP//AAAAAAkAAAAAAPr/AAAAAAkAAAAAAPv/AAAAAAkAAAAPAPr/AAAAAAkAAAAPAPv/AAAAAAkAAAAAAP3/AAAAAAkAAAAAAP7/AAAAAAkAAAAPAP3/AAAAAAkAAAAPAP7/AAAAAAkAAAABAPP/AAAAAAkAAAACAPP/AAAAAAkAAAADAPP/AAAAAAkAAAADAPL/AAAAAAkAAAACAPL/AAAAAAkAAAABAPL/AAAAAAkAAAABAPH/AAAAAAkAAAACAPH/AAAAAAkAAAADAPH/AAAAAAkAAAAEAPH/AAAAAAkAAAAFAPH/AAAAAAkAAAAGAPH/AAAAAAkAAAAHAPH/AAAAAAkAAAAIAPH/AAAAAAkAAAAJAPH/AAAAAAkAAAAKAPH/AAAAAAkAAAALAPH/AAAAAAkAAAAMAPH/AAAAAAkAAAANAPH/AAAAAAkAAAAOAPH/AAAAAAkAAAAOAPL/AAAAAAkAAAAOAPP/AAAAAAkAAAANAPP/AAAAAAkAAAAMAPP/AAAAAAkAAAAMAPL/AAAAAAkAAAANAPL/AAAAAAkAAAAJAPL/AAAAAAkAAAAIAPP/AAAAAAkAAAAIAPL/AAAAAAkAAAAJAPP/AAAAAAkAAAAEAPP/AAAAAAkAAAAEAPL/AAAAAAkAAAAFAPL/AAAAAAkAAAAGAPL/AAAAAAkAAAAHAPL/AAAAAAkAAAAHAPP/AAAAAAkAAAAGAPP/AAAAAAkAAAAFAPP/AAAAAAkAAAAKAPP/AAAAAAkAAAALAPL/AAAAAAkAAAALAPP/AAAAAAkAAAAKAPL/AAAAAAkAAAAOAP7/AAAAAAkAAAANAP7/AAAAAAkAAAACAP7/AAAAAAkAAAABAP7/AAAAAAkAAAABAP3/AAAAAAkAAAANAP3/AAAAAAkAAAAOAP3/AAAAAAkAAAACAP3/AAAAAAkAAAADAP3/AAAAAAkAAAAEAP3/AAAAAAkAAAAFAP3/AAAAAAkAAAAGAP3/AAAAAAkAAAAHAP3/AAAAAAkAAAAIAP3/AAAAAAkAAAAJAP3/AAAAAAkAAAAKAP3/AAAAAAkAAAALAP3/AAAAAAkAAAAMAP3/AAAAAAkAAAAMAP7/AAAAAAkAAAALAP7/AAAAAAkAAAAKAP7/AAAAAAkAAAAJAP7/AAAAAAkAAAAIAP7/AAAAAAkAAAAHAP7/AAAAAAkAAAAGAP7/AAAAAAkAAAAFAP7/AAAAAAkAAAAEAP7/AAAAAAkAAAADAP7/AAAAAAkAAAA=")
+tile_set = SubResource("TileSet_i5c1p")
+script = ExtResource("3_gqgfv")
+
+[node name="door" parent="." instance=ExtResource("4_kmeyn")]
+position = Vector2(224, -48)
+
+[node name="start" type="Node2D" parent="." groups=["start"]]
+position = Vector2(48, -64)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="coin" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(16, -64)
+
+[node name="coin2" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(32, -64)
+
+[node name="coin3" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(48, -64)
+
+[node name="coin4" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(64, -64)
+
+[node name="coin5" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(80, -64)
+
+[node name="coin6" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(96, -64)
+
+[node name="coin7" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(112, -64)
+
+[node name="coin8" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(128, -64)
+
+[node name="coin9" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(144, -64)
+
+[node name="coin10" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(160, -64)
+
+[node name="coin11" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(176, -64)
+
+[node name="coin12" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(192, -64)
+
+[node name="coin13" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(16, -80)
+
+[node name="coin14" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(32, -80)
+
+[node name="coin15" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(48, -80)
+
+[node name="coin16" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(64, -80)
+
+[node name="coin17" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(80, -80)
+
+[node name="coin18" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(96, -80)
+
+[node name="coin19" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(112, -80)
+
+[node name="coin20" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(128, -80)
+
+[node name="coin21" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(144, -80)
+
+[node name="coin22" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(160, -80)
+
+[node name="coin23" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(176, -80)
+
+[node name="coin24" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(192, -80)
+
+[node name="coin25" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(208, -80)
+
+[node name="coin28" parent="Node2D" instance=ExtResource("6_oi3ra")]
+position = Vector2(224, -80)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="coin" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(16, -64)
+
+[node name="coin2" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(32, -64)
+
+[node name="coin3" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(48, -64)
+
+[node name="coin4" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(64, -64)
+
+[node name="coin5" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(80, -64)
+
+[node name="coin6" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(96, -64)
+
+[node name="coin7" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(112, -64)
+
+[node name="coin8" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(128, -64)
+
+[node name="coin9" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(144, -64)
+
+[node name="coin10" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(160, -64)
+
+[node name="coin11" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(176, -64)
+
+[node name="coin12" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(192, -64)
+
+[node name="coin29" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(16, -16)
+
+[node name="coin30" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(32, -16)
+
+[node name="coin31" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(48, -16)
+
+[node name="coin32" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(64, -16)
+
+[node name="coin33" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(80, -16)
+
+[node name="coin34" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(96, -16)
+
+[node name="coin35" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(112, -16)
+
+[node name="coin36" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(128, -16)
+
+[node name="coin37" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(144, -16)
+
+[node name="coin38" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(160, -16)
+
+[node name="coin39" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(176, -16)
+
+[node name="coin40" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(192, -16)
+
+[node name="coin13" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(16, -80)
+
+[node name="coin14" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(32, -80)
+
+[node name="coin15" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(48, -80)
+
+[node name="coin16" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(64, -80)
+
+[node name="coin17" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(80, -80)
+
+[node name="coin18" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(96, -80)
+
+[node name="coin19" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(112, -80)
+
+[node name="coin20" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(128, -80)
+
+[node name="coin21" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(144, -80)
+
+[node name="coin22" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(160, -80)
+
+[node name="coin23" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(176, -80)
+
+[node name="coin24" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(192, -80)
+
+[node name="coin25" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(208, -80)
+
+[node name="coin26" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(208, -64)
+
+[node name="coin27" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(224, -64)
+
+[node name="coin28" parent="Node2D2" instance=ExtResource("6_oi3ra")]
+position = Vector2(224, -80)
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(0, -64)
+
+[node name="coin" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(16, -64)
+
+[node name="coin2" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(32, -64)
+
+[node name="coin3" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(48, -64)
+
+[node name="coin4" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(64, -64)
+
+[node name="coin5" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(80, -64)
+
+[node name="coin6" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(96, -64)
+
+[node name="coin7" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(112, -64)
+
+[node name="coin8" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(128, -64)
+
+[node name="coin9" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(144, -64)
+
+[node name="coin10" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(160, -64)
+
+[node name="coin11" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(176, -64)
+
+[node name="coin12" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(192, -64)
+
+[node name="coin13" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(16, -80)
+
+[node name="coin14" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(32, -80)
+
+[node name="coin15" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(48, -80)
+
+[node name="coin16" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(64, -80)
+
+[node name="coin17" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(80, -80)
+
+[node name="coin18" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(96, -80)
+
+[node name="coin19" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(112, -80)
+
+[node name="coin20" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(128, -80)
+
+[node name="coin21" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(144, -80)
+
+[node name="coin22" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(160, -80)
+
+[node name="coin23" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(176, -80)
+
+[node name="coin24" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(192, -80)
+
+[node name="coin25" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(208, -80)
+
+[node name="coin26" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(208, -64)
+
+[node name="coin27" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(224, -64)
+
+[node name="coin28" parent="Node2D3" instance=ExtResource("6_oi3ra")]
+position = Vector2(224, -80)
+
+[node name="Node2D4" type="Node2D" parent="."]
+position = Vector2(0, -96)
+
+[node name="coin" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(16, -64)
+
+[node name="coin2" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(32, -64)
+
+[node name="coin3" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(48, -64)
+
+[node name="coin4" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(64, -64)
+
+[node name="coin5" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(80, -64)
+
+[node name="coin6" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(96, -64)
+
+[node name="coin7" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(112, -64)
+
+[node name="coin8" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(128, -64)
+
+[node name="coin9" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(144, -64)
+
+[node name="coin10" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(160, -64)
+
+[node name="coin11" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(176, -64)
+
+[node name="coin12" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(192, -64)
+
+[node name="coin13" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(16, -80)
+
+[node name="coin14" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(32, -80)
+
+[node name="coin15" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(48, -80)
+
+[node name="coin16" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(64, -80)
+
+[node name="coin17" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(80, -80)
+
+[node name="coin18" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(96, -80)
+
+[node name="coin19" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(112, -80)
+
+[node name="coin20" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(128, -80)
+
+[node name="coin21" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(144, -80)
+
+[node name="coin22" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(160, -80)
+
+[node name="coin23" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(176, -80)
+
+[node name="coin24" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(192, -80)
+
+[node name="coin25" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(208, -80)
+
+[node name="coin26" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(208, -64)
+
+[node name="coin27" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(224, -64)
+
+[node name="coin28" parent="Node2D4" instance=ExtResource("6_oi3ra")]
+position = Vector2(224, -80)

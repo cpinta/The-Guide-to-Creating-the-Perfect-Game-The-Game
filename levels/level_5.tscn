@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=4 uid="uid://bnpall84nhxpd"]
+
+[ext_resource type="Script" path="res://levels/level_5.gd" id="1_n4dkm"]
+[ext_resource type="Texture2D" uid="uid://cinix5bguktmd" path="res://sprites/tilemap.png" id="2_ep4u3"]
+[ext_resource type="Script" path="res://scripts/tiles_platform.gd" id="3_ghsqd"]
+[ext_resource type="PackedScene" uid="uid://cpvkvm6ikobka" path="res://scenes/door.tscn" id="3_kvsl1"]
+[ext_resource type="PackedScene" uid="uid://dipdqxu27l2ir" path="res://scenes/car_spawner.tscn" id="4_hytg8"]
+[ext_resource type="PackedScene" uid="uid://bo331gf2htwnu" path="res://scenes/car.tscn" id="5_7ts53"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erd8w"]
+texture = ExtResource("2_ep4u3")
+0:8/0 = 0
+1:8/0 = 0
+1:8/0/z_index = -1
+1:8/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:9/0 = 0
+3:9/0 = 0
+2:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_i5c1p"]
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 16
+physics_layer_1/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_erd8w")
+
+[node name="level1" type="Node2D"]
+script = ExtResource("1_n4dkm")
+color = Color(1, 0.52654, 0.63163, 1)
+
+[node name="platform" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAkAAAAAAP3/AAAAAAkAAAAAAPz/AAAAAAkAAAAAAPn/AAAAAAkAAAAAAPj/AAAAAAkAAAAAAPf/AAAAAAkAAAAAAPb/AAAAAAkAAAAAAPX/AAAAAAkAAAAAAPT/AAAAAAkAAAAAAPP/AAAAAAkAAAAAAPL/AAAAAAkAAAAAAPH/AAAAAAkAAAAAAPD/AAAAAAkAAAABAPD/AAAAAAkAAAACAPD/AAAAAAkAAAADAPD/AAAAAAkAAAAEAPD/AAAAAAkAAAAFAPD/AAAAAAkAAAAGAPD/AAAAAAkAAAAHAPD/AAAAAAkAAAAIAPD/AAAAAAkAAAAJAPD/AAAAAAkAAAAKAPD/AAAAAAkAAAALAPD/AAAAAAkAAAAMAPD/AAAAAAkAAAANAPD/AAAAAAkAAAAOAPD/AAAAAAkAAAAPAPD/AAAAAAkAAAAPAP//AAAAAAkAAAAOAP//AAAAAAkAAAANAP//AAAAAAkAAAAMAP//AAAAAAkAAAALAP//AAAAAAkAAAAKAP//AAAAAAkAAAAJAP//AAAAAAkAAAAIAP//AAAAAAkAAAAHAP//AAAAAAkAAAAGAP//AAAAAAkAAAAFAP//AAAAAAkAAAAEAP//AAAAAAkAAAADAP//AAAAAAkAAAACAP//AAAAAAkAAAAPAP7/AAAAAAkAAAAPAP3/AAAAAAkAAAAPAPz/AAAAAAkAAAAPAPn/AAAAAAkAAAAPAPj/AAAAAAkAAAAPAPf/AAAAAAkAAAAPAPb/AAAAAAkAAAAPAPX/AAAAAAkAAAAPAPT/AAAAAAkAAAAPAPP/AAAAAAkAAAAPAPL/AAAAAAkAAAAPAPH/AAAAAAkAAAABAP//AAAAAAkAAAAAAP7/AAAAAAkAAAACAP3/AAAAAAkAAAABAP3/AAAAAAkAAAABAP7/AAAAAAkAAAACAP7/AAAAAAkAAAAOAP3/AAAAAAkAAAAJAP3/AAAAAAkAAAAJAP7/AAAAAAkAAAAOAP7/AAAAAAkAAAAIAP3/AAAAAAkAAAAIAP7/AAAAAAkAAAADAP3/AAAAAAkAAAADAP7/AAAAAAkAAAAOAPz/AAAAAAkAAAANAPz/AAAAAAkAAAANAP3/AAAAAAkAAAANAP7/AAAAAAkAAAAEAP3/AAAAAAkAAAAEAP7/AAAAAAkAAAAIAPz/AAAAAAkAAAAJAPz/AAAAAAkAAAAEAPz/AAAAAAkAAAADAPz/AAAAAAkAAAACAPz/AAAAAAkAAAABAPz/AAAAAAkAAAAFAPz/AAAAAAkAAAAGAPz/AAAAAAkAAAAHAPz/AAAAAAkAAAAKAPz/AAAAAAkAAAALAPz/AAAAAAkAAAAMAPz/AAAAAAkAAAAMAP3/AAAAAAkAAAALAP3/AAAAAAkAAAAKAP3/AAAAAAkAAAAHAP3/AAAAAAkAAAAGAP3/AAAAAAkAAAAFAP3/AAAAAAkAAAAFAP7/AAAAAAkAAAAGAP7/AAAAAAkAAAAHAP7/AAAAAAkAAAAKAP7/AAAAAAkAAAALAP7/AAAAAAkAAAAMAP7/AAAAAAkAAAAOAPn/AAAAAAkAAAANAPn/AAAAAAkAAAAMAPn/AAAAAAkAAAAAAPr/AAABAAgAAAAAAPv/AAABAAgAAAAPAPr/AAABAAgAAAAPAPv/AAABAAgAAAD///z/AAAAAAkAAAD+//z/AAAAAAkAAAAQAPz/AAAAAAkAAAARAPz/AAAAAAkAAAA=")
+tile_set = SubResource("TileSet_i5c1p")
+script = ExtResource("3_ghsqd")
+
+[node name="door" parent="." instance=ExtResource("3_kvsl1")]
+position = Vector2(208, -112)
+
+[node name="start" type="Node2D" parent="." groups=["start"]]
+position = Vector2(48, -64)
+
+[node name="car spawner" parent="." instance=ExtResource("4_hytg8")]
+position = Vector2(272, -64)
+
+[node name="start" parent="car spawner" index="0"]
+position = Vector2(0, 0)
+
+[node name="end" parent="car spawner" index="1"]
+position = Vector2(-288, 0)
+
+[node name="car" parent="." instance=ExtResource("5_7ts53")]
+position = Vector2(160, -64)
+
+[editable path="car spawner"]

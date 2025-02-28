@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=4 uid="uid://c5daio1kfgjpy"]
+
+[ext_resource type="Script" path="res://scripts/spike.gd" id="1_kb77m"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_a8a8g"]
+_data = PackedByteArray("AAADAAUAAAABAAAAEAAAABAAAABGAAAAUklGRj4AAABXRUJQVlA4TDEAAAAvD8ADEBcgFkzxcBJNIJDi5FZYIJAEttny8x9Q/UFRADKQpyz66J+GHQki+p94YygcAA==")
+size_override = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1e3i"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmj2e"]
+size = Vector2(16, 16)
+
+[node name="spike" type="Node2D"]
+script = ExtResource("1_kb77m")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(8, -8)
+texture = SubResource("PortableCompressedTexture2D_a8a8g")
+region_rect = Rect2(0, 10, 16, 6)
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://sprites/spikes.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "373b585774c3c5f80b37bf18cdf2c825"
+
+[node name="collider" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="shape" type="CollisionShape2D" parent="collider"]
+position = Vector2(8, -4)
+shape = SubResource("RectangleShape2D_w1e3i")
+
+[node name="fall area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="shape" type="CollisionShape2D" parent="fall area"]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_dmj2e")
+
+[node name="destination" type="Node2D" parent="."]

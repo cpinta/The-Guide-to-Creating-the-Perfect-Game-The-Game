@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dipdqxu27l2ir"]
+
+[ext_resource type="Script" path="res://scripts/car_spawner.gd" id="1_38rfm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mb0c"]
+size = Vector2(32, 32)
+
+[node name="car spawner" type="Node2D"]
+script = ExtResource("1_38rfm")
+
+[node name="start" type="Area2D" parent="."]
+position = Vector2(48, 0)
+collision_layer = 0
+collision_mask = 32
+
+[node name="shape" type="CollisionShape2D" parent="start"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_4mb0c")
+
+[node name="end" type="Node2D" parent="."]
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]

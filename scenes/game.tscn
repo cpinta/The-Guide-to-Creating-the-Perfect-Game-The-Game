@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://cs3lero7f2v8x"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6yy42"]
+[ext_resource type="PackedScene" uid="uid://5uy5pbrkfeso" path="res://scenes/player.tscn" id="1_162w8"]
+[ext_resource type="Script" path="res://scenes/ui.gd" id="3_s56t3"]
+[ext_resource type="Script" path="res://scenes/ui_center_text.gd" id="4_f10so"]
+[ext_resource type="Script" path="res://scenes/pressstart.gd" id="5_xjuuw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b5v21"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2w000"]
+line_spacing = -3.0
+font_size = 12
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_6yy42")
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
+offset = Vector2(128, -128)
+
+[node name="player" parent="." instance=ExtResource("1_162w8")]
+position = Vector2(24, -48)
+
+[node name="UI" type="CanvasLayer" parent="."]
+offset = Vector2(0, -256)
+transform = Transform2D(1, 0, 0, 1, 0, -256)
+follow_viewport_enabled = true
+script = ExtResource("3_s56t3")
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="centering" type="HBoxContainer" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -121.5
+offset_top = 20.0
+offset_right = 121.5
+offset_bottom = 51.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="text" type="PanelContainer" parent="UI/Control/centering"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_b5v21")
+script = ExtResource("4_f10so")
+
+[node name="text" type="Label" parent="UI/Control/centering/text"]
+layout_mode = 2
+text = "So thanks for atleast reading through this
+silly thing"
+label_settings = SubResource("LabelSettings_2w000")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pressstart" type="Label" parent="UI/Control"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 96.0
+offset_right = 209.0
+offset_bottom = 119.0
+text = "Press Space to Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_xjuuw")
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="audioCoin" type="AudioStreamPlayer2D" parent="."]
+volume_db = -18.21
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

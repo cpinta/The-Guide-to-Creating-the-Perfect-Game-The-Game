@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=4 uid="uid://dlsnrj1ibb3to"]
+
+[ext_resource type="Script" path="res://levels/level_7.3.gd" id="1_mgpol"]
+[ext_resource type="Texture2D" uid="uid://cinix5bguktmd" path="res://sprites/tilemap.png" id="2_rp5mk"]
+[ext_resource type="Script" path="res://scripts/tiles_platform.gd" id="3_mw2ae"]
+[ext_resource type="PackedScene" uid="uid://cpvkvm6ikobka" path="res://scenes/door.tscn" id="4_br7eb"]
+[ext_resource type="PackedScene" uid="uid://mln7aoyppxcn" path="res://scenes/coin.tscn" id="5_sc30r"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erd8w"]
+texture = ExtResource("2_rp5mk")
+0:8/0 = 0
+1:8/0 = 0
+1:8/0/z_index = -1
+1:8/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:9/0 = 0
+3:9/0 = 0
+2:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_i5c1p"]
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 16
+physics_layer_1/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_erd8w")
+
+[node name="level1" type="Node2D"]
+script = ExtResource("1_mgpol")
+color = Color(0.772562, 0.882734, 0, 1)
+
+[node name="platform" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAkAAAAAAPz/AAAAAAkAAAAAAPn/AAAAAAkAAAAAAPj/AAAAAAkAAAAAAPf/AAAAAAkAAAAAAPb/AAAAAAkAAAAAAPX/AAAAAAkAAAAAAPT/AAAAAAkAAAAAAPP/AAAAAAkAAAAAAPL/AAAAAAkAAAAAAPH/AAAAAAkAAAAAAPD/AAAAAAkAAAABAPD/AAAAAAkAAAACAPD/AAAAAAkAAAADAPD/AAAAAAkAAAAEAPD/AAAAAAkAAAAFAPD/AAAAAAkAAAAGAPD/AAAAAAkAAAAHAPD/AAAAAAkAAAAIAPD/AAAAAAkAAAAJAPD/AAAAAAkAAAAKAPD/AAAAAAkAAAALAPD/AAAAAAkAAAAMAPD/AAAAAAkAAAANAPD/AAAAAAkAAAAOAPD/AAAAAAkAAAAPAPD/AAAAAAkAAAAPAP//AAAAAAkAAAAOAP//AAAAAAkAAAANAP//AAAAAAkAAAAMAP//AAAAAAkAAAALAP//AAAAAAkAAAAKAP//AAAAAAkAAAAJAP//AAAAAAkAAAAIAP//AAAAAAkAAAAHAP//AAAAAAkAAAAGAP//AAAAAAkAAAAFAP//AAAAAAkAAAAEAP//AAAAAAkAAAADAP//AAAAAAkAAAACAP//AAAAAAkAAAAPAPz/AAAAAAkAAAAPAPn/AAAAAAkAAAAPAPj/AAAAAAkAAAAPAPf/AAAAAAkAAAAPAPb/AAAAAAkAAAAPAPX/AAAAAAkAAAAPAPT/AAAAAAkAAAAPAPP/AAAAAAkAAAAPAPL/AAAAAAkAAAAPAPH/AAAAAAkAAAABAP//AAAAAAkAAAAAAPr/AAAAAAkAAAAAAPv/AAAAAAkAAAAPAPr/AAAAAAkAAAAPAPv/AAAAAAkAAAAAAP3/AAAAAAkAAAAAAP7/AAAAAAkAAAAPAP3/AAAAAAkAAAAPAP7/AAAAAAkAAAAOAP7/AAAAAAkAAAANAP7/AAAAAAkAAAACAP7/AAAAAAkAAAABAP7/AAAAAAkAAAABAP3/AAAAAAkAAAANAP3/AAAAAAkAAAAOAP3/AAAAAAkAAAACAP3/AAAAAAkAAAADAP3/AAAAAAkAAAAEAP3/AAAAAAkAAAAFAP3/AAAAAAkAAAAGAP3/AAAAAAkAAAAJAP3/AAAAAAkAAAAKAP3/AAAAAAkAAAALAP3/AAAAAAkAAAAMAP3/AAAAAAkAAAAMAP7/AAAAAAkAAAALAP7/AAAAAAkAAAAKAP7/AAAAAAkAAAAJAP7/AAAAAAkAAAAFAP7/AAAAAAkAAAAEAP7/AAAAAAkAAAADAP7/AAAAAAkAAAAGAP7/AAAAAAkAAAAHAP3/AAAAAAkAAAAIAP3/AAAAAAkAAAAIAP7/AAAAAAkAAAAHAP7/AAAAAAkAAAA=")
+tile_set = SubResource("TileSet_i5c1p")
+script = ExtResource("3_mw2ae")
+
+[node name="door" parent="." instance=ExtResource("4_br7eb")]
+position = Vector2(224, -48)
+
+[node name="start" type="Node2D" parent="." groups=["start"]]
+position = Vector2(48, -64)
+
+[node name="coin" parent="." instance=ExtResource("5_sc30r")]
+position = Vector2(64, -64)
+
+[node name="coin2" parent="." instance=ExtResource("5_sc30r")]
+position = Vector2(112, -80)
+
+[node name="coin3" parent="." instance=ExtResource("5_sc30r")]
+position = Vector2(160, -64)
+
+[node name="coin4" parent="." instance=ExtResource("5_sc30r")]
+position = Vector2(208, -80)

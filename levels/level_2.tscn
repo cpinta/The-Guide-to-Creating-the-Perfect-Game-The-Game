@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=4 uid="uid://pti0ww8krhx6"]
+
+[ext_resource type="Script" path="res://levels/level_2.gd" id="1_g6dyf"]
+[ext_resource type="Texture2D" uid="uid://cinix5bguktmd" path="res://sprites/tilemap.png" id="2_rm0hi"]
+[ext_resource type="PackedScene" uid="uid://cpvkvm6ikobka" path="res://scenes/door.tscn" id="3_ll2ck"]
+[ext_resource type="Script" path="res://scripts/tiles_platform.gd" id="3_lsj2o"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erd8w"]
+texture = ExtResource("2_rm0hi")
+1:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_i5c1p"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_erd8w")
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_82wta"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAABAAAACUAAAAUklGRowAAABXRUJQVlA4TH8AAAAvH8ADECdAmG0055nufS6noSBtA2buZ+46GoGkzYov2bKdz38A/D9NixQctJHkSBcIXN01gAsENiBoafiT2vmIIKL/EzBtvD1PZX/vWk8sBxaWg+VANpKRDfVAJIbMchAxaMAGeWBQhpxZmeWgPnzY+v7e1Z/nvdae1t9+2v33AA==")
+size_override = Vector2(32, 16)
+
+[node name="level1" type="Node2D"]
+script = ExtResource("1_g6dyf")
+color = Color(0, 0.392157, 1, 1)
+
+[node name="platform" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAkAAAAAAP3/AAAAAAkAAAAAAPz/AAAAAAkAAAAAAPv/AAAAAAkAAAAAAPr/AAAAAAkAAAAAAPn/AAAAAAkAAAAAAPj/AAAAAAkAAAAAAPf/AAAAAAkAAAAAAPb/AAAAAAkAAAAAAPX/AAAAAAkAAAAAAPT/AAAAAAkAAAAAAPP/AAAAAAkAAAAAAPL/AAAAAAkAAAAAAPH/AAAAAAkAAAAAAPD/AAAAAAkAAAABAPD/AAAAAAkAAAACAPD/AAAAAAkAAAADAPD/AAAAAAkAAAAEAPD/AAAAAAkAAAAFAPD/AAAAAAkAAAAGAPD/AAAAAAkAAAAHAPD/AAAAAAkAAAAIAPD/AAAAAAkAAAAJAPD/AAAAAAkAAAAKAPD/AAAAAAkAAAALAPD/AAAAAAkAAAAMAPD/AAAAAAkAAAANAPD/AAAAAAkAAAAOAPD/AAAAAAkAAAAPAPD/AAAAAAkAAAAPAP//AAAAAAkAAAAOAP//AAAAAAkAAAANAP//AAAAAAkAAAAMAP//AAAAAAkAAAALAP//AAAAAAkAAAAKAP//AAAAAAkAAAAJAP//AAAAAAkAAAAIAP//AAAAAAkAAAAHAP//AAAAAAkAAAAGAP//AAAAAAkAAAAFAP//AAAAAAkAAAAEAP//AAAAAAkAAAADAP//AAAAAAkAAAACAP//AAAAAAkAAAAPAP7/AAAAAAkAAAAPAP3/AAAAAAkAAAAPAPz/AAAAAAkAAAAPAPv/AAAAAAkAAAAPAPr/AAAAAAkAAAAPAPn/AAAAAAkAAAAPAPj/AAAAAAkAAAAPAPf/AAAAAAkAAAAPAPb/AAAAAAkAAAAPAPX/AAAAAAkAAAAPAPT/AAAAAAkAAAAPAPP/AAAAAAkAAAAPAPL/AAAAAAkAAAAPAPH/AAAAAAkAAAABAP//AAAAAAkAAAAAAP7/AAAAAAkAAAACAP3/AAAAAAkAAAABAP3/AAAAAAkAAAABAP7/AAAAAAkAAAACAP7/AAAAAAkAAAAOAP3/AAAAAAkAAAANAP3/AAAAAAkAAAAMAP3/AAAAAAkAAAALAP3/AAAAAAkAAAAKAP3/AAAAAAkAAAAJAP3/AAAAAAkAAAAIAP3/AAAAAAkAAAAHAP3/AAAAAAkAAAAGAP3/AAAAAAkAAAAFAP3/AAAAAAkAAAAEAP3/AAAAAAkAAAADAP3/AAAAAAkAAAADAP7/AAAAAAkAAAAFAP7/AAAAAAkAAAAGAP7/AAAAAAkAAAAHAP7/AAAAAAkAAAAEAP7/AAAAAAkAAAAIAP7/AAAAAAkAAAAJAP7/AAAAAAkAAAAKAP7/AAAAAAkAAAALAP7/AAAAAAkAAAAMAP7/AAAAAAkAAAANAP7/AAAAAAkAAAAOAP7/AAAAAAkAAAAJAPr/AAAAAAkAAAAJAPv/AAAAAAkAAAAJAPz/AAAAAAkAAAAKAPz/AAAAAAkAAAALAPz/AAAAAAkAAAAMAPz/AAAAAAkAAAANAPz/AAAAAAkAAAAOAPz/AAAAAAkAAAAOAPv/AAAAAAkAAAAOAPr/AAAAAAkAAAANAPr/AAAAAAkAAAAMAPr/AAAAAAkAAAALAPr/AAAAAAkAAAAKAPv/AAAAAAkAAAAKAPr/AAAAAAkAAAALAPv/AAAAAAkAAAAMAPv/AAAAAAkAAAANAPv/AAAAAAkAAAA=")
+tile_set = SubResource("TileSet_i5c1p")
+script = ExtResource("3_lsj2o")
+
+[node name="door" parent="." instance=ExtResource("3_ll2ck")]
+position = Vector2(192, -96)
+
+[node name="start" type="Node2D" parent="." groups=["start"]]
+position = Vector2(40, -48)
+
+[node name="w" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(80, -160)
+texture = SubResource("PortableCompressedTexture2D_82wta")
+offset = Vector2(16, -8)
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://sprites/key_space.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "b45bf03d5c02658cfc0deff2ff5b02ff"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 128.0
+offset_top = -176.0
+offset_right = 192.0
+offset_bottom = -136.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = -16.0
+offset_right = 233.0
+offset_bottom = 32.0
+text = "to jump"
+vertical_alignment = 1

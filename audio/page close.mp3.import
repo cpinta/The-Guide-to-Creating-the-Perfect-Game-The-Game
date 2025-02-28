@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://da2m8k247asly"
+path="res://.godot/imported/page close.mp3-c46c972f4bf11ef14ba35aa6f1ab565f.mp3str"
+
+[deps]
+
+source_file="res://audio/page close.mp3"
+dest_files=["res://.godot/imported/page close.mp3-c46c972f4bf11ef14ba35aa6f1ab565f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
