@@ -152,7 +152,7 @@ happen when this thing blows", 4)
 	await Game.speak_for_time("okay, now I feel bad", 5)
 	await Game.speak_for_time("how can I talk about all these
 	rules", 5)
-	await Game.speak_for_time("but they arent't even effective?", 5)
+	await Game.speak_for_time("but they aren't even effective?", 5)
 	await Game.speak_for_time("...", 5)
 	await Game.speak_for_time("no, no, no that can't be right", 5)
 	await Game.speak_for_time("you're messing with me, right?", 5)

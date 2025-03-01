@@ -4,7 +4,6 @@ var intro:AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Game.player.queue_free()
 	intro = $intro
 	intro.play("close")
 	intro.animation_finished.connect(anim_done)

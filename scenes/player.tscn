@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hlhl"]
-size = Vector2(14, 1)
+size = Vector2(12.9, 1)
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -110,7 +110,7 @@ collision_layer = 0
 collision_mask = 33
 
 [node name="shape" type="CollisionShape2D" parent="groundDetect"]
-position = Vector2(0, 8.5)
+position = Vector2(-0.5, 8.5)
 shape = SubResource("RectangleShape2D_2hlhl")
 
 [node name="audio" type="AudioStreamPlayer2D" parent="."]

@@ -39,7 +39,6 @@ var acWhoosh: AudioStream
 func _ready():
 	gameUI = $UI
 	load_intro()
-	state = GameState.TITLE_SCREEN
 	
 	audio = $audio
 	audioCoin = $audioCoin
@@ -59,10 +58,10 @@ func _ready():
 	acWhoosh = load("res://audio/whoosh.mp3")
 	
 	
-	#levelPaths.append("res://levels/level_1.tscn");
-	#levelPaths.append("res://levels/level_2.tscn");
-	#levelPaths.append("res://levels/level_3.tscn");
-	#levelPaths.append("res://levels/level_3.1.tscn");
+	levelPaths.append("res://levels/level_1.tscn");
+	levelPaths.append("res://levels/level_2.tscn");
+	levelPaths.append("res://levels/level_3.tscn");
+	levelPaths.append("res://levels/level_3.1.tscn");
 	levelPaths.append("res://levels/level_4.tscn");
 	levelPaths.append("res://levels/level_5.tscn");
 	levelPaths.append("res://levels/level_6.tscn");
@@ -84,10 +83,13 @@ func restart_game():
 	load_intro()
 
 func load_intro():
+	Game.gameUI.centerText.set_color(Color.WHITE)
+	state = GameState.TITLE_SCREEN
 	intro = sceneIntro.instantiate()
 	self.add_child(intro)
 	intro.play("idle")
 	intro.animation_finished.connect(intro_ended)
+	gameUI.pressStartText.visible = true
 
 func intro_ended():
 	intro.queue_free()
@@ -107,7 +109,7 @@ func _process(delta):
 		GameState.TITLE_SCREEN:
 			if Input.is_action_just_released("jump"):
 				if intro.animation.get_basename() != "open":
-					gameUI.pressStartText.queue_free()
+					gameUI.pressStartText.visible = false
 					intro.play("open")
 				
 					play_sound(acOpen)
